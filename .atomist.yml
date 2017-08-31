@@ -1,0 +1,22 @@
+---
+kind: "operation"
+client: "com.atomist:rug"
+version: "1.0.0-20170816122823"
+generator:
+  name: "UniversalSeed"
+  group: "atomist"
+  artifact: "spring-team-handlers"
+  version: "0.9.4"
+  origin:
+    repo: "git@github.com:atomisthq/spring-team-handlers.git"
+    branch: "0dda4d3d93690103286c775d7ef5291608d242f8"
+    sha: "0dda4d3"
+  parameters:
+    - "sourceOwner": "atomist-seeds"
+    - "sourceRepo": "spring-rest-seed"
+    - "sourceBranch": "master"
+    - "targetOwner": "medallia-poc"
+    - "follows": "true"
+    - "description": "my new project"
+    - "visibility": "public"
+
