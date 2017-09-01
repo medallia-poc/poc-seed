@@ -1,0 +1,24 @@
+FROM ubuntu:16.04
+
+RUN apt-get update -y && apt-get install -y sudo \
+        curl \
+        python2.7 \
+        build-essential \
+        git \
+        libcurl4-openssl-dev \
+        software-properties-common \
+        libsvn-dev \
+        libapr1-dev \
+        vim \
+        zip \
+        ssh
+
+RUN groupadd -g 999 docker \
+	&& apt-get install -y libapparmor1 iptables \
+    && wget -O docker.deb https://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-engine_1.9.1-0~trusty_amd64.deb \
+    && sudo dpkg -i docker.deb
+
+RUN useradd -c "Jenkins user" -d $HOME -m jenkins -u 2198 \
+	&& usermod -aG docker jenkins \
+	&& adduser jenkins sudo \
+	&& echo '%sudo    ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
