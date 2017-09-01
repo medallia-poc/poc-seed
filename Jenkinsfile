@@ -32,7 +32,7 @@ pipeline {
         stage("build") {
             steps {
                 sh "docker build -t poc-microservice-a:test -f POCDockerfile ."
-                sh "docker rmi test-image:test"
+                sh "docker rmi poc-microservice-a:test"
             }
         }
     }
